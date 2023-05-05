@@ -1,5 +1,15 @@
 # chatgpt_airflow
-Airflow project to periodically pull ChatGPT responses and load to a Postgres database hosted on Google CloudSQL
+Airflow project to periodically pull ChatGPT responses and load to a Postgres database hosted on Google CloudSQL. 
+The intention of the project was to learn how to use Airflow, improve skills with GCP, and to take a more defined data engineering approach to pulling data for my Trivia app
+
+The steps of the tool:
+
+1) In the script, I specified a list of question categories I want ChatGPT to provide Questions and Answers for
+2) Make the request and receive a response from ChatGPT. Data comes back as JSON
+3) Add a category object to the resopnse and save the file to blob on Google Cloud Storage. This is all in 1 Dag
+4) In another DAG, called etl_dal, I extract the most recent data in blob and process it. I compare against what's already been loaded in Postgres to check for duplicates. The process also does some additional cleaning with extra quotes and spaces
+5) After the data has been cleaned, the dag ends with a load_task which loads the clean data into the Postgres database that's hostbed on Google Cloud SQL
+6) The data is then used by the Trivia App
 
 # Apache Airflow enablement 
 
