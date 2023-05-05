@@ -1,0 +1,26 @@
+[2023-05-03T20:20:10.544+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_dag.extract_data_gcp scheduled__2023-05-03T20:10:00+00:00 [queued]>
+[2023-05-03T20:20:10.548+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_dag.extract_data_gcp scheduled__2023-05-03T20:10:00+00:00 [queued]>
+[2023-05-03T20:20:10.548+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-03T20:20:10.548+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-05-03T20:20:10.548+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-03T20:20:10.558+0000] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): extract_data_gcp> on 2023-05-03 20:10:00+00:00
+[2023-05-03T20:20:10.561+0000] {standard_task_runner.py:55} INFO - Started process 228559 to run task
+[2023-05-03T20:20:10.563+0000] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'etl_dag', 'extract_data_gcp', 'scheduled__2023-05-03T20:10:00+00:00', '--job-id', '2752', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpz15f3ppz']
+[2023-05-03T20:20:10.563+0000] {standard_task_runner.py:83} INFO - Job 2752: Subtask extract_data_gcp
+[2023-05-03T20:20:10.591+0000] {task_command.py:389} INFO - Running <TaskInstance: etl_dag.extract_data_gcp scheduled__2023-05-03T20:10:00+00:00 [running]> on host trivia-machine.us-central1-a.c.triviapractice-381517.internal
+[2023-05-03T20:20:10.627+0000] {taskinstance.py:1516} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=richc
+AIRFLOW_CTX_DAG_ID=etl_dag
+AIRFLOW_CTX_TASK_ID=extract_data_gcp
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-03T20:10:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-05-03T20:10:00+00:00
+[2023-05-03T20:20:10.700+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-03/seinfield_2023-05-03_20-15-10.json
+[2023-05-03T20:20:10.735+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-03/ushistory_2023-05-03_20-05-13.json
+[2023-05-03T20:20:10.771+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-03/ushistory_2023-05-03_20-10-13.json
+[2023-05-03T20:20:10.836+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-05-03T20:20:10.839+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=etl_dag, task_id=extract_data_gcp, execution_date=20230503T201000, start_date=20230503T202010, end_date=20230503T202010
+[2023-05-03T20:20:10.854+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-05-03T20:20:10.867+0000] {taskinstance.py:2596} INFO - 1 downstream tasks scheduled from follow-on schedule check

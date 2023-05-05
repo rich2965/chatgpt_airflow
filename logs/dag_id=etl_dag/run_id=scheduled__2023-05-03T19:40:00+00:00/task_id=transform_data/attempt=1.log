@@ -1,0 +1,55 @@
+[2023-05-03T19:50:21.506+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_dag.transform_data scheduled__2023-05-03T19:40:00+00:00 [queued]>
+[2023-05-03T19:50:21.510+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_dag.transform_data scheduled__2023-05-03T19:40:00+00:00 [queued]>
+[2023-05-03T19:50:21.510+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-03T19:50:21.510+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-05-03T19:50:21.510+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-03T19:50:21.520+0000] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): transform_data> on 2023-05-03 19:40:00+00:00
+[2023-05-03T19:50:21.522+0000] {standard_task_runner.py:55} INFO - Started process 226307 to run task
+[2023-05-03T19:50:21.525+0000] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'etl_dag', 'transform_data', 'scheduled__2023-05-03T19:40:00+00:00', '--job-id', '2721', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmp9mbtfein']
+[2023-05-03T19:50:21.525+0000] {standard_task_runner.py:83} INFO - Job 2721: Subtask transform_data
+[2023-05-03T19:50:21.553+0000] {task_command.py:389} INFO - Running <TaskInstance: etl_dag.transform_data scheduled__2023-05-03T19:40:00+00:00 [running]> on host trivia-machine.us-central1-a.c.triviapractice-381517.internal
+[2023-05-03T19:50:21.590+0000] {taskinstance.py:1516} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=richc
+AIRFLOW_CTX_DAG_ID=etl_dag
+AIRFLOW_CTX_TASK_ID=transform_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-03T19:40:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-05-03T19:40:00+00:00
+[2023-05-03T19:50:21.637+0000] {xcom.py:629} ERROR - Object of type DataFrame is not JSON serializable. If you are using pickle instead of JSON for XCom, then you need to enable pickle support for XCom in your airflow config or make sure to decorate your object with attr.
+[2023-05-03T19:50:21.638+0000] {taskinstance.py:1776} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/usr/local/lib/python3.9/dist-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/rich2/airflow/dags/etl_dag.py", line 98, in transform_data
+    ti.xcom_push("data_to_ingest", data_to_ingest)
+  File "/usr/local/lib/python3.9/dist-packages/airflow/utils/session.py", line 75, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/airflow/models/taskinstance.py", line 2298, in xcom_push
+    XCom.set(
+  File "/usr/local/lib/python3.9/dist-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/airflow/models/xcom.py", line 234, in set
+    value = cls.serialize_value(
+  File "/usr/local/lib/python3.9/dist-packages/airflow/models/xcom.py", line 627, in serialize_value
+    return json.dumps(value, cls=XComEncoder).encode("UTF-8")
+  File "/usr/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/local/lib/python3.9/dist-packages/airflow/utils/json.py", line 176, in encode
+    return super().encode(o)
+  File "/usr/lib/python3.9/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.9/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.9/dist-packages/airflow/utils/json.py", line 170, in default
+    return super().default(o)
+  File "/usr/lib/python3.9/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type DataFrame is not JSON serializable
+[2023-05-03T19:50:21.640+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=etl_dag, task_id=transform_data, execution_date=20230503T194000, start_date=20230503T195021, end_date=20230503T195021
+[2023-05-03T19:50:21.649+0000] {standard_task_runner.py:100} ERROR - Failed to execute job 2721 for task transform_data (Object of type DataFrame is not JSON serializable; 226307)
+[2023-05-03T19:50:21.656+0000] {local_task_job.py:212} INFO - Task exited with return code 1
+[2023-05-03T19:50:21.666+0000] {taskinstance.py:2596} INFO - 0 downstream tasks scheduled from follow-on schedule check

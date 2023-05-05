@@ -1,0 +1,23 @@
+[2023-05-01T19:15:18.092+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: chatgpt_dag.chatgpt_saveresponse scheduled__2023-05-01T19:10:00+00:00 [queued]>
+[2023-05-01T19:15:18.096+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: chatgpt_dag.chatgpt_saveresponse scheduled__2023-05-01T19:10:00+00:00 [queued]>
+[2023-05-01T19:15:18.096+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-01T19:15:18.096+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-05-01T19:15:18.096+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-01T19:15:18.106+0000] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): chatgpt_saveresponse> on 2023-05-01 19:10:00+00:00
+[2023-05-01T19:15:18.109+0000] {standard_task_runner.py:55} INFO - Started process 10934 to run task
+[2023-05-01T19:15:18.111+0000] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'chatgpt_dag', 'chatgpt_saveresponse', 'scheduled__2023-05-01T19:10:00+00:00', '--job-id', '401', '--raw', '--subdir', 'DAGS_FOLDER/chatgpt_dag.py', '--cfg-path', '/tmp/tmpo2c41_h9']
+[2023-05-01T19:15:18.111+0000] {standard_task_runner.py:83} INFO - Job 401: Subtask chatgpt_saveresponse
+[2023-05-01T19:15:18.140+0000] {task_command.py:389} INFO - Running <TaskInstance: chatgpt_dag.chatgpt_saveresponse scheduled__2023-05-01T19:10:00+00:00 [running]> on host trivia-machine.us-central1-a.c.triviapractice-381517.internal
+[2023-05-01T19:15:18.175+0000] {taskinstance.py:1516} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=richc
+AIRFLOW_CTX_DAG_ID=chatgpt_dag
+AIRFLOW_CTX_TASK_ID=chatgpt_saveresponse
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-01T19:10:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-05-01T19:10:00+00:00
+[2023-05-01T19:15:18.192+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-05-01T19:15:18.194+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=chatgpt_dag, task_id=chatgpt_saveresponse, execution_date=20230501T191000, start_date=20230501T191518, end_date=20230501T191518
+[2023-05-01T19:15:18.242+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-05-01T19:15:18.255+0000] {taskinstance.py:2596} INFO - 1 downstream tasks scheduled from follow-on schedule check

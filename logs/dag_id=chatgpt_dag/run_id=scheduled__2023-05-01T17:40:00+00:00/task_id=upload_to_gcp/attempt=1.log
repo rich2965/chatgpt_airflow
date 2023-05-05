@@ -1,0 +1,33 @@
+[2023-05-01T17:45:14.247+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: chatgpt_dag.upload_to_gcp scheduled__2023-05-01T17:40:00+00:00 [queued]>
+[2023-05-01T17:45:14.251+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: chatgpt_dag.upload_to_gcp scheduled__2023-05-01T17:40:00+00:00 [queued]>
+[2023-05-01T17:45:14.251+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-01T17:45:14.251+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-05-01T17:45:14.252+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-01T17:45:14.261+0000] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): upload_to_gcp> on 2023-05-01 17:40:00+00:00
+[2023-05-01T17:45:14.264+0000] {standard_task_runner.py:55} INFO - Started process 4574 to run task
+[2023-05-01T17:45:14.266+0000] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'chatgpt_dag', 'upload_to_gcp', 'scheduled__2023-05-01T17:40:00+00:00', '--job-id', '319', '--raw', '--subdir', 'DAGS_FOLDER/chatgpt_dag.py', '--cfg-path', '/tmp/tmp1uy31qhx']
+[2023-05-01T17:45:14.267+0000] {standard_task_runner.py:83} INFO - Job 319: Subtask upload_to_gcp
+[2023-05-01T17:45:14.296+0000] {task_command.py:389} INFO - Running <TaskInstance: chatgpt_dag.upload_to_gcp scheduled__2023-05-01T17:40:00+00:00 [running]> on host trivia-machine.us-central1-a.c.triviapractice-381517.internal
+[2023-05-01T17:45:14.329+0000] {taskinstance.py:1516} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=richc
+AIRFLOW_CTX_DAG_ID=chatgpt_dag
+AIRFLOW_CTX_TASK_ID=upload_to_gcp
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-01T17:40:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-05-01T17:40:00+00:00
+[2023-05-01T17:45:14.330+0000] {logging_mixin.py:137} INFO - <TaskInstance: chatgpt_dag.upload_to_gcp scheduled__2023-05-01T17:40:00+00:00 [running]>
+[2023-05-01T17:45:14.391+0000] {taskinstance.py:1776} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/usr/local/lib/python3.9/dist-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/rich2/airflow/dags/chatgpt_dag.py", line 74, in upload_to_gcp
+    print('THE FILE PATH IS :' +file_path)
+TypeError: can only concatenate str (not "NoneType") to str
+[2023-05-01T17:45:14.393+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=chatgpt_dag, task_id=upload_to_gcp, execution_date=20230501T174000, start_date=20230501T174514, end_date=20230501T174514
+[2023-05-01T17:45:14.402+0000] {standard_task_runner.py:100} ERROR - Failed to execute job 319 for task upload_to_gcp (can only concatenate str (not "NoneType") to str; 4574)
+[2023-05-01T17:45:14.438+0000] {local_task_job.py:212} INFO - Task exited with return code 1
+[2023-05-01T17:45:14.446+0000] {taskinstance.py:2596} INFO - 0 downstream tasks scheduled from follow-on schedule check

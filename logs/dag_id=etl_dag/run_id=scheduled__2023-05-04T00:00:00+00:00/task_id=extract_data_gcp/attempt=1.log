@@ -1,0 +1,37 @@
+[2023-05-04T01:00:10.845+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_dag.extract_data_gcp scheduled__2023-05-04T00:00:00+00:00 [queued]>
+[2023-05-04T01:00:10.849+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_dag.extract_data_gcp scheduled__2023-05-04T00:00:00+00:00 [queued]>
+[2023-05-04T01:00:10.849+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-04T01:00:10.849+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-05-04T01:00:10.849+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-04T01:00:10.859+0000] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): extract_data_gcp> on 2023-05-04 00:00:00+00:00
+[2023-05-04T01:00:10.862+0000] {standard_task_runner.py:55} INFO - Started process 249962 to run task
+[2023-05-04T01:00:10.864+0000] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'etl_dag', 'extract_data_gcp', 'scheduled__2023-05-04T00:00:00+00:00', '--job-id', '3003', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmp9z9udv5d']
+[2023-05-04T01:00:10.864+0000] {standard_task_runner.py:83} INFO - Job 3003: Subtask extract_data_gcp
+[2023-05-04T01:00:10.893+0000] {task_command.py:389} INFO - Running <TaskInstance: etl_dag.extract_data_gcp scheduled__2023-05-04T00:00:00+00:00 [running]> on host trivia-machine.us-central1-a.c.triviapractice-381517.internal
+[2023-05-04T01:00:10.930+0000] {taskinstance.py:1516} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=richc
+AIRFLOW_CTX_DAG_ID=etl_dag
+AIRFLOW_CTX_TASK_ID=extract_data_gcp
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-04T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-05-04T00:00:00+00:00
+[2023-05-04T01:00:11.013+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-03/olympics_2023-05-03_23-55-09.json
+[2023-05-04T01:00:11.088+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-03/ushistory_2023-05-03_23-50-13.json
+[2023-05-04T01:00:11.210+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-04/friends_2023-05-04_00-20-10.json
+[2023-05-04T01:00:11.259+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-04/oscars_2023-05-04_00-05-13.json
+[2023-05-04T01:00:11.339+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-04/razzies_2023-05-04_00-50-12.json
+[2023-05-04T01:00:11.395+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-04/seinfield_2023-05-04_00-15-12.json
+[2023-05-04T01:00:11.460+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-04/seinfield_2023-05-04_00-45-10.json
+[2023-05-04T01:00:11.569+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-04/usalcohol_2023-05-04_00-55-11.json
+[2023-05-04T01:00:11.622+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-04/uscompanies_2023-05-04_00-35-11.json
+[2023-05-04T01:00:11.693+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-04/usgeography_2023-05-04_00-00-15.json
+[2023-05-04T01:00:11.756+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-04/usgeography_2023-05-04_00-10-11.json
+[2023-05-04T01:00:11.800+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-04/ushistory_2023-05-04_00-40-12.json
+[2023-05-04T01:00:11.857+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-04/usmusicawards_2023-05-04_00-25-09.json
+[2023-05-04T01:00:11.934+0000] {logging_mixin.py:137} INFO - Processing json blob: chatgpt_output/2023-05-04/usmusicawards_2023-05-04_00-30-10.json
+[2023-05-04T01:00:12.007+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-05-04T01:00:12.010+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=etl_dag, task_id=extract_data_gcp, execution_date=20230504T000000, start_date=20230504T010010, end_date=20230504T010012
+[2023-05-04T01:00:12.037+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-05-04T01:00:12.050+0000] {taskinstance.py:2596} INFO - 1 downstream tasks scheduled from follow-on schedule check
