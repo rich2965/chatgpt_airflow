@@ -19,7 +19,7 @@ sudo apt-get install python3-pip -y
 sudo pip3 install apache-airflow
 
 airflow db init
-airflow users create --username admin --password admin --firstname Rich --lastname Chung --role Admin --email rich.chung2965@gmail.com
+airflow users create --username <insert_value> --password <insert_value> --firstname <insert_value> --lastname <insert_value> --role <insert_value> --email <insert_value>
 
 airflow webserver -p 8080
 airflow scheduler
@@ -30,7 +30,8 @@ virtualenv airflow-env
 source airflow-env/bin/activate
 airflow webserver -p 8080
 airflow scheduler
-Airflow UI will be available at 35.188.162.190:8080  (IP of the VM:8080)
+
+Note: Airflow UI will be available at <insert_ip>:8080  (IP of the VM:8080)
 
 # Start airflow every time the VM turns on
 sudo nano /etc/systemd/system/airflow.service
@@ -44,6 +45,7 @@ After=network.target
 User=rich2
 Type=simple
 ExecStart=/bin/bash -c 'source /home/rich2/airflow/airflow-env/bin/activate && airflow webserver -p 8080 & airflow scheduler'
+Note: The source varies depending on where you initialize the 'airflow db init' command
 
 [Install]
 WantedBy=multi-user.target
