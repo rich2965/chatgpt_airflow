@@ -9,9 +9,12 @@ import os
 import pandas as pd
 from google.cloud import storage
 
+#Load from Config File:
+
+with open('/home/rich2/airflow/chatgpt_config.json', 'r') as f:
+    config = json.load(f)
+
 # Dag Default Args
-
-
 
 with DAG(
     'chatgpt_dag',
@@ -30,12 +33,17 @@ with DAG(
 
     def chatgpt_request(**kwargs):
         # Config
-        openai.api_key = "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"
-        categories = ['US Geography','US History', 'Friends','US Music Awards','Seinfield','Olympics','Oscars','US Companies','Razzies','US Alcohol']
+        openai.api_key = config["api_key"]
+        # categories = ['US Geography','US History', 'Friends','US Music Awards','Seinfield','Olympics','Oscars','US Companies','Razzies','US Alcohol']
+        categories = config["categories"]
         random_category = random.choice(categories)
+        random_category_name = random_category["name"]
+        random_category_source = random_category["source"]
         ti = kwargs["ti"]
+        print("SELECTED CATEGORY: " + random_category_name)
+        print(random_category_source)
         # Define the prompt
-        prompt = f"5 random trivia questions about {random_category}, no multiple choice type questions. I want the output in pipe delimited output: number|question|answer"
+        prompt = f"5 random trivia questions about {random_category_name} using {random_category_source}, no multiple choice type questions. I want the output in pipe delimited output: number|question|answer"
         # Generate a response using the OpenAI API
         try:
             response = openai.Completion.create(
@@ -46,7 +54,7 @@ with DAG(
         except Exception:
             print (Exception)
         #Add Category to the output
-        response['Category'] = random_category
+        response['Category'] = random_category_name
         ti.xcom_push("response", response)
 
     def save_response(**kwargs):

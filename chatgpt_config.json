@@ -1,0 +1,49 @@
+{
+
+    "categories":
+    [
+        {
+            "name": "US Geography",
+            "source": "en.wikipedia.com"
+        }
+        ,
+        {
+            "name": "US History",
+            "source": "en.wikipedia.com"
+        },
+        {
+            "name":  "Friends",
+            "source": "en.wikipedia.com"
+        },
+        {
+            "name": "US Music Awards",
+            "source": "en.wikipedia.com"
+        },
+        {
+            "name": "Seinfield",
+            "source": "en.wikipedia.com"
+        },
+        {
+            "name": "Olympics",
+            "source": "en.wikipedia.com"
+        },
+        {
+            "name": "Oscars",
+            "source": "en.wikipedia.com"
+        },
+        {
+            "name": "US Companies",
+            "source": "en.wikipedia.com"
+        },
+        {
+            "name": "Razzies",
+            "source": "en.wikipedia.com"
+        },
+        {
+            "name": "US Alcohol",
+            "source": "en.wikipedia.com"
+        }
+    ],
+    "api_key": "{{INSERT CHATGPT API KEY}}"
+    }
+    

@@ -81,7 +81,7 @@ with DAG(
         data_list = ti.xcom_pull(task_ids="extract_data_gcp", key="data_list")
 
         #Pull Data from Postgres Table to compare against Extracted blob data 
-        query = 'SELECT * FROM question_testing'
+        query = 'SELECT * FROM question_chatgpt'
         resultset = pd.read_sql_query(sql=query, con=engine.connect())
 
         # Load data_list to dataframe and Clean the data
@@ -114,7 +114,7 @@ with DAG(
 
         # ingest data into Postgres
         try:
-            data_to_ingest.to_sql(name='question_testing',con=engine,if_exists='append',index=None)
+            data_to_ingest.to_sql(name='question_chatgpt',con=engine,if_exists='append',index=None)
         except Exception:
             print(Exception)
         print(f"Number of rows processed: {len(data_to_ingest)}")
